@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Quicksand:wght@400;600;700&display=swap");
+
+:root {
+    --text-main: #fffafc;
+    --text-soft: #f1e6f8;
+    --card-bg: rgba(83, 54, 116, 0.24);
+    --card-border: rgba(255, 255, 255, 0.62);
+    --bg-a: rgba(255, 205, 242, 0.45);
+    --bg-b: rgba(189, 230, 255, 0.42);
+    --bg-c: rgba(255, 244, 186, 0.32);
+    --tone-1: #7b5ba8;
+    --tone-2: #9d7ac7;
+    --tone-3: #f2b8df;
+    --btn-a: rgba(250, 171, 222, 0.75);
+    --btn-b: rgba(184, 170, 255, 0.72);
+    --active-a: rgba(220, 255, 246, 0.9);
+    --active-b: rgba(216, 242, 255, 0.92);
+    --orb-a: rgba(255, 186, 228, 0.95);
+    --orb-b: rgba(202, 255, 241, 0.95);
+    --link-a: #ffe7f6;
+    --link-b: #dcfff3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text-main);
+    font-family: "Quicksand", "Segoe UI", sans-serif;
+    background:
+        radial-gradient(circle at 15% 18%, var(--bg-a), transparent 36%),
+        radial-gradient(circle at 82% 16%, var(--bg-b), transparent 38%),
+        radial-gradient(circle at 72% 78%, var(--bg-c), transparent 42%),
+        linear-gradient(
+            130deg,
+            var(--tone-1) 0%,
+            var(--tone-2) 25%,
+            var(--tone-3) 50%,
+            var(--tone-2) 75%,
+            var(--tone-1) 100%
+        );
+    background-size: auto, auto, auto, 240% 240%;
+    position: relative;
+    overflow-x: hidden;
+    transition: background 320ms ease, background-size 320ms ease;
+    animation: moodFlow 12s ease-in-out infinite;
+}
+
+/* Glitter layer */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.92) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(255, 219, 244, 0.9) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(213, 255, 246, 0.9) 0 1px, transparent 2px),
+        linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    background-size: 130px 130px, 180px 180px, 210px 210px, 28px 28px, 28px 28px;
+    background-position: 0 0, 35px 80px, 120px 40px, 0 0, 0 0;
+    opacity: 0.3;
+    animation: twinkle 9s linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: translateY(0); }
+    50% { opacity: 0.36; transform: translateY(-6px); }
+    100% { opacity: 0.2; transform: translateY(0); }
+}
+
+@keyframes moodFlow {
+    0% { background-position: 0 0, 0 0, 0 0, 0% 50%; }
+    50% { background-position: 0 0, 0 0, 0 0, 100% 50%; }
+    100% { background-position: 0 0, 0 0, 0 0, 0% 50%; }
+}
+
+.welcome-screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+}
+
+.welcome-card {
+    width: min(700px, 100%);
+    border-radius: 28px;
+    padding: 2rem 1.4rem;
+    text-align: center;
+    background: linear-gradient(160deg, rgba(122, 88, 153, 0.32), rgba(244, 182, 221, 0.16));
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 12px 22px rgba(54, 26, 70, 0.2);
+}
+
+.welcome-tag {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #fff3fb;
+}
+
+.welcome-card h1 {
+    margin: 0.6rem 0 0.4rem;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-shadow: 0 2px 10px rgba(81, 44, 102, 0.28);
+}
+
+.welcome-card p {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+.enter-btn {
+    display: inline-block;
+    margin-top: 1.25rem;
+    padding: 0.72rem 1.5rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #55346f;
+    background: linear-gradient(135deg, #ffe2f4, #d8fff2);
+    border: 1px solid rgba(255, 255, 255, 0.86);
+    box-shadow: 0 6px 12px rgba(73, 36, 90, 0.18);
+}
+
+.secondary-btn {
+    background: linear-gradient(135deg, #f1ecff, #d8e7ff);
+    color: #3f466f;
+}
+
+.exit-actions {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+}
+
+.app {
+    padding: 1.25rem 1rem 2.6rem;
+    text-align: center;
+}
+
+.session-actions {
+    width: min(1120px, 100%);
+    margin: 0 auto 0.8rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.leave-btn {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 999px;
+    padding: 0.5rem 0.95rem;
+    font-weight: 700;
+    color: #55346f;
+    background: linear-gradient(135deg, rgba(255, 236, 245, 0.9), rgba(233, 249, 255, 0.9));
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.app > h1 {
+    margin: 0 0 1.2rem;
+    font-family: "DM Serif Display", Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    text-shadow: 0 2px 10px rgba(80, 40, 92, 0.3);
+}
+
+.filters {
+    width: min(1060px, 100%);
+    margin: 0 auto 1.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.56rem;
+}
+
+.filters button {
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 999px;
+    padding: 0.55rem 1.02rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--btn-a), var(--btn-b));
+    box-shadow: 0 5px 10px rgba(82, 43, 94, 0.16);
+}
+
+.filters button.active {
+    color: #2c2f56;
+    background: linear-gradient(135deg, var(--active-a), var(--active-b));
+    border-color: rgba(255, 255, 255, 0.86);
+}
+
+#shuffle-btn {
+    background: linear-gradient(135deg, rgba(255, 239, 183, 0.82), rgba(255, 206, 233, 0.82));
+    color: #4a2a5f;
+}
+
+#song-container {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1rem;
+}
+
+.song-card {
+    border-radius: 18px;
+    padding: 0.95rem;
+    text-align: left;
+    background: linear-gradient(165deg, var(--card-bg), rgba(255, 255, 255, 0.08));
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 8px 14px rgba(60, 30, 76, 0.16);
+    position: relative;
+    overflow: hidden;
+}
+
+.song-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -35%;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 70%);
+    pointer-events: none;
+}
+
+.song-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.65rem;
+}
+
+.song-orb {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1rem;
+    background: linear-gradient(140deg, var(--orb-a), var(--orb-b));
+    box-shadow: 0 3px 10px rgba(255, 204, 236, 0.38);
+}
+
+.song-mood {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff8ff;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 999px;
+    padding: 0.28rem 0.55rem;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.song-card h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.02rem;
+}
+
+.song-card p {
+    margin: 0 0 0.72rem;
+    color: var(--text-soft);
+    font-size: 0.92rem;
+}
+
+.song-card a {
+    display: inline-block;
+    text-decoration: none;
+    color: #49345f;
+    font-weight: 700;
+    font-size: 0.82rem;
+    border-radius: 999px;
+    padding: 0.43rem 0.72rem;
+    border: 1px solid rgba(255, 255, 255, 0.86);
+    background: linear-gradient(135deg, var(--link-a), var(--link-b));
+}
+
+body.music-page[data-theme="kpop"] {
+    --bg-a: rgba(255, 182, 229, 0.55);
+    --bg-b: rgba(176, 228, 255, 0.52);
+    --bg-c: rgba(225, 218, 255, 0.45);
+    --tone-1: #5b2aa8;
+    --tone-2: #7f5bff;
+    --tone-3: #5ec8ff;
+    --btn-a: rgba(255, 166, 220, 0.86);
+    --btn-b: rgba(154, 188, 255, 0.84);
+}
+
+body.music-page[data-theme="pop"] {
+    --bg-a: rgba(255, 215, 181, 0.5);
+    --bg-b: rgba(255, 185, 219, 0.48);
+    --bg-c: rgba(255, 237, 169, 0.38);
+    --tone-1: #ffd84d;
+    --tone-2: #ff9d40;
+    --tone-3: #ff5d7a;
+}
+
+body.music-page[data-theme="indie"] {
+    --bg-a: rgba(190, 210, 255, 0.4);
+    --bg-b: rgba(203, 186, 255, 0.42);
+    --bg-c: rgba(179, 255, 224, 0.3);
+    --tone-1: #355c7d;
+    --tone-2: #6c5b7b;
+    --tone-3: #c06c84;
+}
+
+body.music-page[data-theme="hype"] {
+    --bg-a: rgba(255, 139, 206, 0.58);
+    --bg-b: rgba(255, 189, 127, 0.54);
+    --bg-c: rgba(255, 244, 152, 0.44);
+    --tone-1: #ffe259;
+    --tone-2: #ffa751;
+    --tone-3: #ff4e50;
+    --btn-a: rgba(255, 127, 189, 0.9);
+    --btn-b: rgba(255, 185, 97, 0.88);
+}
+
+body.music-page[data-theme="study"] {
+    --bg-a: rgba(179, 222, 255, 0.45);
+    --bg-b: rgba(205, 210, 255, 0.4);
+    --bg-c: rgba(209, 255, 244, 0.36);
+    --tone-1: #3f72af;
+    --tone-2: #6fa8dc;
+    --tone-3: #b9f2ff;
+}
+
+body.music-page[data-theme="rb"] {
+    --bg-a: rgba(255, 176, 214, 0.48);
+    --bg-b: rgba(224, 184, 255, 0.45);
+    --bg-c: rgba(255, 221, 195, 0.35);
+    --tone-1: #6a0572;
+    --tone-2: #ab83a1;
+    --tone-3: #f6c1c7;
+}
+
+body.music-page[data-theme="chill"] {
+    --bg-a: rgba(194, 240, 255, 0.44);
+    --bg-b: rgba(213, 220, 255, 0.4);
+    --bg-c: rgba(225, 255, 246, 0.34);
+    --tone-1: #2193b0;
+    --tone-2: #6dd5ed;
+    --tone-3: #ccf5ff;
+}
+
+body.music-page[data-theme="christian"] {
+    --bg-a: rgba(255, 236, 180, 0.38);
+    --bg-b: rgba(255, 218, 238, 0.34);
+    --bg-c: rgba(209, 255, 240, 0.34);
+    --tone-1: #4e54c8;
+    --tone-2: #8f94fb;
+    --tone-3: #e3e9ff;
+}
+
+@media (max-width: 640px) {
+    .welcome-card {
+        padding: 1.5rem 1rem;
+    }
+
+    #song-container {
+        grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    }
+}
