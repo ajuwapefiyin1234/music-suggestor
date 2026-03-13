@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommendation - Playlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="music-page">
+    <main class="app">
+        <div class="session-actions">
+            <a class="leave-btn" href="out.html">Leave Room</a>
+        </div>
+        <h1>Music Recommendations</h1>
+
+        <div class="filters">
+            <button data-mood="pop" onclick="filterSongs('pop')">Pop</button>
+            <button data-mood="indie" onclick="filterSongs('indie')">Indie</button>
+            <button data-mood="Kpop" onclick="filterSongs('Kpop')">Kpop</button>
+            <button data-mood="Christian Music" onclick="filterSongs('Christian Music')">Christian Music</button>
+            <button data-mood="hype" onclick="filterSongs('hype')">Hype</button>
+            <button data-mood="study" onclick="filterSongs('study')">Study</button>
+            <button data-mood="R&B" onclick="filterSongs('R&B')">R&B</button>
+            <button data-mood="chill" onclick="filterSongs('chill')">Chill</button>
+            <button id="shuffle-btn" type="button">Shuffle</button>
+        </div>
+
+        <div id="song-container"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
